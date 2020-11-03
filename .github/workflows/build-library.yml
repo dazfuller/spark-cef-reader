@@ -18,4 +18,8 @@ jobs:
       with:
         java-version: 1.8
     - name: Clean, build, and package
-      run: sbt test
+      run: sbt clean test package
+    - name: Upload the package
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        path: ./target/**/spark-cef-reader*.jar
